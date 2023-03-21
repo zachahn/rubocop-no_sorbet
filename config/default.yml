@@ -1,6 +1,5 @@
-# Write it!
-
+---
 NoRubocop/NoExtendTSig:
-  Description: 'TODO: Write a description of the cop.'
-  Enabled: pending
+  Description: 'Do not `extend T::Sig`'
+  Enabled: true
   VersionAdded: '<<next>>'

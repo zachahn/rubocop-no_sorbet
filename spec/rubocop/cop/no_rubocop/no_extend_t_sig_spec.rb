@@ -1,21 +1,37 @@
 # frozen_string_literal: true
 
 RSpec.describe RuboCop::Cop::NoRubocop::NoExtendTSig, :config do
-  let(:config) { RuboCop::Config.new }
+  let(:message) { RuboCop::Cop::NoRubocop::NoExtendTSig::MSG }
 
-  # TODO: Write test code
-  #
-  # For example
-  it "registers an offense when using `#bad_method`" do
-    expect_offense(<<~RUBY)
-      bad_method
-      ^^^^^^^^^^ Use `#good_method` instead of `#bad_method`.
-    RUBY
+  shared_examples "wrapped `extend T::Sig`" do |open, close|
+    it "registers a correctable offense when `extend T::Sig` is wrapped within `#{open}`" do
+      expect_offense(<<~RUBY)
+        #{open}
+          extend T::Sig
+          ^^^^^^^^^^^^^ #{message}
+        #{close}
+      RUBY
+
+      expect_correction(<<~RUBY)
+        #{open}
+          
+        #{close}
+      RUBY
+    end
   end
 
-  it "does not register an offense when using `#good_method`" do
-    expect_no_offenses(<<~RUBY)
-      good_method
+  include_examples "wrapped `extend T::Sig`", "class Foo", "end"
+  include_examples "wrapped `extend T::Sig`", "module Foo", "end"
+  include_examples "wrapped `extend T::Sig`", "class Foo ; class << self", "end; end"
+  include_examples "wrapped `extend T::Sig`", "module Foo ; class << self", "end; end"
+  include_examples "wrapped `extend T::Sig`", "", ""
+
+  it "registers a correctable offence when `extend T::Sig` is called on an object" do
+    expect_offense(<<~RUBY)
+      foo.extend T::Sig
+      ^^^^^^^^^^^^^^^^^ #{message}
     RUBY
+
+    expect_correction("\n")
   end
 end
