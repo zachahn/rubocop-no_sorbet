@@ -3,3 +3,8 @@ NoRubocop/NoExtendTSig:
   Description: 'Do not `extend T::Sig`'
   Enabled: true
   VersionAdded: '<<next>>'
+
+NoRubocop/NoSig:
+  Description: 'TODO: Write a description of the cop.'
+  Enabled: pending
+  VersionAdded: '<<next>>'
