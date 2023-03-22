@@ -25,8 +25,8 @@ NoRubocop/NoTStruct:
   VersionAdded: '<<next>>'
 
 NoRubocop/NoTypeAliases:
-  Description: 'TODO: Write a description of the cop.'
-  Enabled: pending
+  Description: 'Do not alias types with `T.type_alias`'
+  Enabled: true
   VersionAdded: '<<next>>'
 
 NoRubocop/NoTypeAnnotations:
