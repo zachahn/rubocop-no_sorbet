@@ -5,6 +5,6 @@ NoRubocop/NoExtendTSig:
   VersionAdded: '<<next>>'
 
 NoRubocop/NoSig:
-  Description: 'TODO: Write a description of the cop.'
-  Enabled: pending
+  Description: 'Do not define type signatures with `sig`'
+  Enabled: true
   VersionAdded: '<<next>>'

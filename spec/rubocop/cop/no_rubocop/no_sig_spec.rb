@@ -1,21 +1,24 @@
 # frozen_string_literal: true
 
 RSpec.describe RuboCop::Cop::NoRubocop::NoSig, :config do
-  let(:config) { RuboCop::Config.new }
+  let(:message) { RuboCop::Cop::NoRubocop::NoSig::MSG }
 
-  # TODO: Write test code
-  #
-  # For example
-  it 'registers an offense when using `#bad_method`' do
+  it "registers an offense when method signature is defined via `sig`" do
     expect_offense(<<~RUBY)
-      bad_method
-      ^^^^^^^^^^ Use `#good_method` instead of `#bad_method`.
+      class Foo
+        sig { void }
+        ^^^^^^^^^^^^ #{message}
+        def bar
+        end
+      end
     RUBY
-  end
 
-  it 'does not register an offense when using `#good_method`' do
-    expect_no_offenses(<<~RUBY)
-      good_method
+    expect_correction(<<~RUBY)
+      class Foo
+        
+        def bar
+        end
+      end
     RUBY
   end
 end
