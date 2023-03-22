@@ -20,8 +20,8 @@ NoRubocop/NoTEnum:
   VersionAdded: '<<next>>'
 
 NoRubocop/NoTStruct:
-  Description: 'TODO: Write a description of the cop.'
-  Enabled: pending
+  Description: 'Do not inherit from `T::Struct`'
+  Enabled: true
   VersionAdded: '<<next>>'
 
 NoRubocop/NoTypeAliases:

@@ -1,21 +1,21 @@
 # frozen_string_literal: true
 
 RSpec.describe RuboCop::Cop::NoRubocop::NoTStruct, :config do
-  let(:config) { RuboCop::Config.new }
+  let(:message) { described_class::MSG }
 
-  # TODO: Write test code
-  #
-  # For example
-  it "registers an offense when using `#bad_method`" do
+  it "registers an offense when inheriting from `T::Struct`" do
     expect_offense(<<~RUBY)
-      bad_method
-      ^^^^^^^^^^ Use `#good_method` instead of `#bad_method`.
+      class Example < T::Struct
+      ^^^^^^^^^^^^^^^^^^^^^^^^^ #{message}
+      end
     RUBY
   end
 
-  it "does not register an offense when using `#good_method`" do
-    expect_no_offenses(<<~RUBY)
-      good_method
+  it "registers an offense when inheriting from `::T::Struct`" do
+    expect_offense(<<~RUBY)
+      class Example < ::T::Struct
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^ #{message}
+      end
     RUBY
   end
 end
