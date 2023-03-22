@@ -10,8 +10,8 @@ NoRubocop/NoSig:
   VersionAdded: '<<next>>'
 
 NoRubocop/NoTAbsurd:
-  Description: 'TODO: Write a description of the cop.'
-  Enabled: pending
+  Description: 'Do not use `T.absurd`'
+  Enabled: true
   VersionAdded: '<<next>>'
 
 NoRubocop/NoTEnum:
