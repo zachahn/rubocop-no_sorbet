@@ -1,21 +1,40 @@
 # frozen_string_literal: true
 
 RSpec.describe RuboCop::Cop::NoRubocop::NoTEnum, :config do
-  let(:config) { RuboCop::Config.new }
+  let(:message) { described_class::MSG }
 
-  # TODO: Write test code
-  #
-  # For example
-  it "registers an offense when using `#bad_method`" do
+  it "registers an offense when inheriting from `T::Enum`" do
     expect_offense(<<~RUBY)
-      bad_method
-      ^^^^^^^^^^ Use `#good_method` instead of `#bad_method`.
+      class Suit < T::Enum
+      ^^^^^^^^^^^^^^^^^^^^ #{message}
+        enums do
+          Spades = new
+          Hearts = new
+          Clubs = new
+          Diamonds = new
+        end
+      end
     RUBY
   end
 
-  it "does not register an offense when using `#good_method`" do
+  it "registers an offense when inheriting from `::T::Enum`" do
+    expect_offense(<<~RUBY)
+      class Suit < ::T::Enum
+      ^^^^^^^^^^^^^^^^^^^^^^ #{message}
+        enums do
+          Spades = new
+          Hearts = new
+          Clubs = new
+          Diamonds = new
+        end
+      end
+    RUBY
+  end
+
+  it "does not register an offense when inheriting from `Other::Enum`" do
     expect_no_offenses(<<~RUBY)
-      good_method
+      class Suit < Other::Enum
+      end
     RUBY
   end
 end

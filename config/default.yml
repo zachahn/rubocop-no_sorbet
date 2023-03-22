@@ -15,8 +15,8 @@ NoRubocop/NoTAbsurd:
   VersionAdded: '<<next>>'
 
 NoRubocop/NoTEnum:
-  Description: 'TODO: Write a description of the cop.'
-  Enabled: pending
+  Description: 'Do not inherit from `T::Enum`'
+  Enabled: true
   VersionAdded: '<<next>>'
 
 NoRubocop/NoTStruct:
