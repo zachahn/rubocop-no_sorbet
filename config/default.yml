@@ -8,3 +8,38 @@ NoRubocop/NoSig:
   Description: 'Do not define type signatures with `sig`'
   Enabled: true
   VersionAdded: '<<next>>'
+
+NoRubocop/NoTAbsurd:
+  Description: 'TODO: Write a description of the cop.'
+  Enabled: pending
+  VersionAdded: '<<next>>'
+
+NoRubocop/NoTEnum:
+  Description: 'TODO: Write a description of the cop.'
+  Enabled: pending
+  VersionAdded: '<<next>>'
+
+NoRubocop/NoTStruct:
+  Description: 'TODO: Write a description of the cop.'
+  Enabled: pending
+  VersionAdded: '<<next>>'
+
+NoRubocop/NoTypeAliases:
+  Description: 'TODO: Write a description of the cop.'
+  Enabled: pending
+  VersionAdded: '<<next>>'
+
+NoRubocop/NoTypeAnnotations:
+  Description: 'TODO: Write a description of the cop.'
+  Enabled: pending
+  VersionAdded: '<<next>>'
+
+NoRubocop/NoTypeAssertions:
+  Description: 'TODO: Write a description of the cop.'
+  Enabled: pending
+  VersionAdded: '<<next>>'
+
+NoRubocop/NoTypedSigil:
+  Description: 'TODO: Write a description of the cop.'
+  Enabled: pending
+  VersionAdded: '<<next>>'
