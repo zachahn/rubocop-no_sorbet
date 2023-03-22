@@ -29,11 +29,6 @@ NoRubocop/NoTypeAliases:
   Enabled: true
   VersionAdded: '<<next>>'
 
-NoRubocop/NoTypeAnnotations:
-  Description: 'Do not use type annotations with `T.let`'
-  Enabled: true
-  VersionAdded: '<<next>>'
-
 NoRubocop/NoTypeAssertions:
   Description: 'Do not use type assertions `T.cast`, `T.must`, etc'
   Enabled: true
