@@ -35,8 +35,8 @@ NoRubocop/NoTypeAnnotations:
   VersionAdded: '<<next>>'
 
 NoRubocop/NoTypeAssertions:
-  Description: 'TODO: Write a description of the cop.'
-  Enabled: pending
+  Description: 'Do not use type assertions `T.cast`, `T.must`, etc'
+  Enabled: true
   VersionAdded: '<<next>>'
 
 NoRubocop/NoTypedSigil:
