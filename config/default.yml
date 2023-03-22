@@ -30,8 +30,8 @@ NoRubocop/NoTypeAliases:
   VersionAdded: '<<next>>'
 
 NoRubocop/NoTypeAnnotations:
-  Description: 'TODO: Write a description of the cop.'
-  Enabled: pending
+  Description: 'Do not use type annotations with `T.let`'
+  Enabled: true
   VersionAdded: '<<next>>'
 
 NoRubocop/NoTypeAssertions:

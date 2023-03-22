@@ -1,21 +1,22 @@
 # frozen_string_literal: true
 
 RSpec.describe RuboCop::Cop::NoRubocop::NoTypeAnnotations, :config do
-  let(:config) { RuboCop::Config.new }
+  let(:message) { described_class::MSG }
 
-  # TODO: Write test code
-  #
-  # For example
-  it "registers an offense when using `#bad_method`" do
+  it "registers an offense when using `T.let`" do
     expect_offense(<<~RUBY)
-      bad_method
-      ^^^^^^^^^^ Use `#good_method` instead of `#bad_method`.
+      def foo
+        bar = T.let(nil, T.nilable(Integer))
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ #{message}
+        bar ||= 1
+      end
     RUBY
-  end
 
-  it "does not register an offense when using `#good_method`" do
-    expect_no_offenses(<<~RUBY)
-      good_method
+    expect_correction(<<~RUBY)
+      def foo
+        bar = (nil)
+        bar ||= 1
+      end
     RUBY
   end
 end
