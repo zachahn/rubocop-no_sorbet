@@ -3,67 +3,63 @@
 module RuboCop
   module Cop
     module NoRubocop
-      # TODO: Write cop description and example of bad / good code. For every
-      # `SupportedStyle` and unique configuration, there needs to be examples.
-      # Examples must have valid Ruby syntax. Do not use upticks.
+      # Do not set the `typed` sigil
       #
       # @safety
-      #   Delete this section if the cop is not unsafe (`Safe: false` or
-      #   `SafeAutoCorrect: false`), or use it to explain how the cop is
-      #   unsafe.
+      #   Unsafe.
       #
-      # @example EnforcedStyle: bar (default)
-      #   # Description of the `bar` style.
+      # @example
+      #   # bad
+      #   # typed: ignore
       #
       #   # bad
-      #   bad_bar_method
+      #   # typed: false
       #
       #   # bad
-      #   bad_bar_method(args)
-      #
-      #   # good
-      #   good_bar_method
-      #
-      #   # good
-      #   good_bar_method(args)
-      #
-      # @example EnforcedStyle: foo
-      #   # Description of the `foo` style.
+      #   # typed: true
       #
       #   # bad
-      #   bad_foo_method
+      #   # typed: strict
       #
       #   # bad
-      #   bad_foo_method(args)
-      #
-      #   # good
-      #   good_foo_method
-      #
-      #   # good
-      #   good_foo_method(args)
+      #   # typed: strong
       #
       class NoTypedSigil < Base
-        # TODO: Implement the cop in here.
-        #
-        # In many cases, you can use a node matcher for matching node pattern.
-        # See https://github.com/rubocop/rubocop-ast/blob/master/lib/rubocop/ast/node_pattern.rb
-        #
-        # For example
-        MSG = "Use `#good_method` instead of `#bad_method`."
+        extend AutoCorrector
 
-        # TODO: Don't call `on_send` unless the method name is in this list
-        # If you don't need `on_send` in the cop you created, remove it.
-        RESTRICT_ON_SEND = %i[bad_method].freeze
+        MSG = "Do not set the `typed` sigil"
 
-        # @!method bad_method?(node)
-        def_node_matcher :bad_method?, <<~PATTERN
-          (send nil? :bad_method ...)
-        PATTERN
+        def on_new_investigation
+          return if processed_source.buffer.source.empty?
 
-        def on_send(node)
-          return unless bad_method?(node)
+          processed_source.comments.each do |comment|
+            break if comment.loc.line >= processed_source.ast.loc.line
 
-          add_offense(node)
+            magic_comment = MagicComment.parse(comment.text)
+
+            if magic_comment.typed_specified?
+              end_pos = comment.location.expression.end_pos
+              add_offense(comment) do |corrector|
+                corrector.remove(comment)
+                end_pos =
+                  if /^[\r\n]+$/m.match?(processed_source.raw_source[(end_pos..(end_pos + 1))])
+                    comment.location.expression.end_pos + 2
+                  elsif /^[\r\n]+$/m.match?(processed_source.raw_source[end_pos])
+                    comment.location.expression.end_pos + 1
+                  else
+                    comment.location.expression.end_pos
+                  end
+
+                total_removal = Parser::Source::Range.new(
+                  processed_source.buffer,
+                  comment.location.expression.begin_pos,
+                  end_pos
+                )
+
+                corrector.remove(total_removal)
+              end
+            end
+          end
         end
       end
     end

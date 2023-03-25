@@ -35,6 +35,6 @@ NoRubocop/NoTypeAssertions:
   VersionAdded: '<<next>>'
 
 NoRubocop/NoTypedSigil:
-  Description: 'TODO: Write a description of the cop.'
-  Enabled: pending
+  Description: 'Do not set the `typed` sigil'
+  Enabled: true
   VersionAdded: '<<next>>'
