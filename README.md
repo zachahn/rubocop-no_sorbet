@@ -16,13 +16,13 @@ Put this into your `.rubocop.yml`.
 
 ```yaml
 require:
-  - rubocop-no_rubocop
+  - rubocop-no_sorbet
 ```
 
 You can also specify this at runtime.
 
 ```bash
-rubocop --require rubocop-no_rubocop
+rubocop --require rubocop-no_sorbet
 ```
 
 ## Development

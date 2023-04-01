@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-RSpec.describe RuboCop::Cop::NoRubocop::NoExtendTSig, :config do
-  let(:message) { RuboCop::Cop::NoRubocop::NoExtendTSig::MSG }
+RSpec.describe RuboCop::Cop::NoSorbet::NoExtendTSig, :config do
+  let(:message) { RuboCop::Cop::NoSorbet::NoExtendTSig::MSG }
 
   shared_examples "wrapped `extend T::Sig`" do |open, close|
     it "registers a correctable offense when `extend T::Sig` is wrapped within `#{open}`" do

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe RuboCop::Cop::NoRubocop::NoTEnum, :config do
+RSpec.describe RuboCop::Cop::NoSorbet::NoTEnum, :config do
   let(:message) { described_class::MSG }
 
   it "registers an offense when inheriting from `T::Enum`" do

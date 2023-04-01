@@ -2,7 +2,7 @@
 
 module RuboCop
   module Cop
-    module NoRubocop
+    module NoSorbet
       # Do not inherit from `T::Struct`
       #
       # @safety

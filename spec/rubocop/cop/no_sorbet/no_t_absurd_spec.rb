@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe RuboCop::Cop::NoRubocop::NoTAbsurd, :config do
+RSpec.describe RuboCop::Cop::NoSorbet::NoTAbsurd, :config do
   let(:message) { described_class::MSG }
 
   it "registers an offense when using `T.absurd`" do

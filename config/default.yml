@@ -1,40 +1,40 @@
 ---
-NoRubocop/NoExtendTSig:
+NoSorbet/NoExtendTSig:
   Description: 'Do not `extend T::Sig`'
   Enabled: true
   VersionAdded: '<<next>>'
 
-NoRubocop/NoSig:
+NoSorbet/NoSig:
   Description: 'Do not define type signatures with `sig`'
   Enabled: true
   VersionAdded: '<<next>>'
 
-NoRubocop/NoTAbsurd:
+NoSorbet/NoTAbsurd:
   Description: 'Do not use `T.absurd`'
   Enabled: true
   VersionAdded: '<<next>>'
 
-NoRubocop/NoTEnum:
+NoSorbet/NoTEnum:
   Description: 'Do not inherit from `T::Enum`'
   Enabled: true
   VersionAdded: '<<next>>'
 
-NoRubocop/NoTStruct:
+NoSorbet/NoTStruct:
   Description: 'Do not inherit from `T::Struct`'
   Enabled: true
   VersionAdded: '<<next>>'
 
-NoRubocop/NoTypeAliases:
+NoSorbet/NoTypeAliases:
   Description: 'Do not alias types with `T.type_alias`'
   Enabled: true
   VersionAdded: '<<next>>'
 
-NoRubocop/NoTypeAssertions:
+NoSorbet/NoTypeAssertions:
   Description: 'Do not use type assertions `T.cast`, `T.must`, etc'
   Enabled: true
   VersionAdded: '<<next>>'
 
-NoRubocop/NoTypedSigil:
+NoSorbet/NoTypedSigil:
   Description: 'Do not set the `typed` sigil'
   Enabled: true
   VersionAdded: '<<next>>'

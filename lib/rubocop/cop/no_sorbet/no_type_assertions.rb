@@ -2,7 +2,7 @@
 
 module RuboCop
   module Cop
-    module NoRubocop
+    module NoSorbet
       # Do not use type assertions `T.cast`, `T.must`, etc
       #
       # @safety

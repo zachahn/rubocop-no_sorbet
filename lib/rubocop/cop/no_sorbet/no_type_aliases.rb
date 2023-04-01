@@ -2,7 +2,7 @@
 
 module RuboCop
   module Cop
-    module NoRubocop
+    module NoSorbet
       # TODO: Write cop description and example of bad / good code. For every
       # `SupportedStyle` and unique configuration, there needs to be examples.
       # Examples must have valid Ruby syntax. Do not use upticks.

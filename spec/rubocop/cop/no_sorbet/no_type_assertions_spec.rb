@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe RuboCop::Cop::NoRubocop::NoTypeAssertions, :config do
+RSpec.describe RuboCop::Cop::NoSorbet::NoTypeAssertions, :config do
   let(:message) { described_class::MSG }
 
   shared_examples "two argument assertion, keep first parameter" do |method_name, type|

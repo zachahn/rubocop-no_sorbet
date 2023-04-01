@@ -2,7 +2,7 @@
 
 module RuboCop
   module Cop
-    module NoRubocop
+    module NoSorbet
       # Do not `extend T::Sig`
       #
       # @safety

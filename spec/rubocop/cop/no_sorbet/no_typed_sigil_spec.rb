@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe RuboCop::Cop::NoRubocop::NoTypedSigil, :config do
+RSpec.describe RuboCop::Cop::NoSorbet::NoTypedSigil, :config do
   let(:message) { described_class::MSG }
 
   it "registers an offense when using the `typed` sigil" do
