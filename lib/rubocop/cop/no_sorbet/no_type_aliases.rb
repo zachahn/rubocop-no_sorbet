@@ -20,7 +20,7 @@ module RuboCop
 
         # @!method define_type_alias?(node)
         def_node_matcher :define_type_alias?, <<~PATTERN
-          (casgn _ _ (block (send (const {nil? | cbase} :T) :type_alias) ...))
+          (casgn _ _ (block (send #{RuboCop::NoSorbet::CONST_T} :type_alias) ...))
         PATTERN
 
         def on_casgn(node)

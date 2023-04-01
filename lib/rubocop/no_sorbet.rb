@@ -10,6 +10,8 @@ module RuboCop
     CONFIG_DEFAULT = PROJECT_ROOT.join("config", "default.yml").freeze
     CONFIG = YAML.safe_load(CONFIG_DEFAULT.read).freeze
 
+    CONST_T = "(const {nil? | cbase} :T)"
+
     private_constant(:CONFIG_DEFAULT, :PROJECT_ROOT)
   end
 end

@@ -37,7 +37,7 @@ module RuboCop
 
         # @!method t_must_bind?(node)
         def_node_matcher :t_must_bind?, <<~PATTERN
-          (send (const {nil? | cbase} :T) {:must | :bind} _)
+          (send #{RuboCop::NoSorbet::CONST_T} {:must | :bind} _)
         PATTERN
 
         def on_send(node)

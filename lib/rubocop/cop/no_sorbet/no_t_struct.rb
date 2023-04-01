@@ -26,7 +26,7 @@ module RuboCop
 
         # @!method inheriting_t_struct?(node)
         def_node_matcher :inheriting_t_struct?, <<~PATTERN
-          (class (const ...) (const (const {nil? | cbase} :T) :Struct) ...)
+          (class (const ...) (const #{RuboCop::NoSorbet::CONST_T} :Struct) ...)
         PATTERN
 
         def on_class(node)

@@ -16,7 +16,7 @@ module RuboCop
 
         # @!method bad_method?(node)
         def_node_matcher :bad_method?, <<~PATTERN
-          (send (const {nil? | cbase} :T) :absurd)
+          (send #{RuboCop::NoSorbet::CONST_T} :absurd)
         PATTERN
 
         def on_send(node)

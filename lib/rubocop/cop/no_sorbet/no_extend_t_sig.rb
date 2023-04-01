@@ -26,7 +26,7 @@ module RuboCop
 
         # @!method extend_t_sig?(node)
         def_node_matcher :extend_t_sig?, <<~PATTERN
-          (send _ :extend (const (const _ :T) :Sig))
+          (send _ :extend (const #{RuboCop::NoSorbet::CONST_T} :Sig))
         PATTERN
 
         def on_send(node)
