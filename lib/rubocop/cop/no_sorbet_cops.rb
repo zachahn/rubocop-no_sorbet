@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
+require_relative "no_sorbet/no_abstract_bang"
+require_relative "no_sorbet/no_extend_t_helpers"
 require_relative "no_sorbet/no_extend_t_sig"
+require_relative "no_sorbet/no_interface_bang"
 require_relative "no_sorbet/no_sig"
 require_relative "no_sorbet/no_t_absurd"
 require_relative "no_sorbet/no_t_enum"

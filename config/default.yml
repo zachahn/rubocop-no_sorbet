@@ -1,6 +1,21 @@
 ---
+NoSorbet/NoAbstractBang:
+  Description: 'TODO: Write a description of the cop.'
+  Enabled: true
+  VersionAdded: '<<next>>'
+
+NoSorbet/NoExtendTHelpers:
+  Description: 'TODO: Write a description of the cop.'
+  Enabled: true
+  VersionAdded: '<<next>>'
+
 NoSorbet/NoExtendTSig:
   Description: 'Do not `extend T::Sig`'
+  Enabled: true
+  VersionAdded: '<<next>>'
+
+NoSorbet/NoInterfaceBang:
+  Description: 'TODO: Write a description of the cop.'
   Enabled: true
   VersionAdded: '<<next>>'
 
