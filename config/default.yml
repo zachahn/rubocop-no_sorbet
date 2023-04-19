@@ -19,6 +19,11 @@ NoSorbet/NoInterfaceBang:
   Enabled: true
   VersionAdded: '<<next>>'
 
+NoSorbet/NoRequireSorbetRuntime:
+  Description: 'TODO: Write a description of the cop.'
+  Enabled: pending
+  VersionAdded: '<<next>>'
+
 NoSorbet/NoSig:
   Description: 'Do not define type signatures with `sig`'
   Enabled: true
