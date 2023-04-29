@@ -54,7 +54,8 @@ RSpec.describe RuboCop::Cop::NoSorbet::NoTypeAssertions, :config do
   include_examples "two argument assertion, keep first parameter", "let", "T.nilable(Integer)"
   include_examples "two argument assertion, keep first parameter", "cast", "String"
   include_examples "two argument assertion, keep first parameter", "assert_type!", "T::Boolean"
+  include_examples "two argument assertion, keep first parameter", "bind", "self", "MyClass"
 
   include_examples "one argument assertion, keep parameter", "must", "some_value"
-  include_examples "one argument assertion, keep parameter", "bind", "self"
+  include_examples "one argument assertion, keep parameter", "unsafe", "some_value"
 end
